@@ -271,7 +271,12 @@ module SimpleZipCode
       "PA"
     end
 
-    Contract InRange[0..0] => String
+    Contract InRange[600..799] => String
+    def get_state_from_zip(_zip)
+      "PR"
+    end
+
+    Contract InRange[900..999] => String
     def get_state_from_zip(_zip)
       "PR"
     end
@@ -369,6 +374,12 @@ module SimpleZipCode
     Contract InRange[82001..83128] => String
     def get_state_from_zip(_zip)
       "WY"
+    end
+
+    # Default to empty string
+    Contract Contracts::Any => String
+    def get_state_from_zip(_zip)
+      ""
     end
   end
 end
